@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Search
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Search</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-searchbar placeholder="Search Resturant" (ionInput)="Search()" [(ngModel)]="searchString"></ion-searchbar>
+        <br>
+        <ion-list>
+            <ion-item *ngFor="let item of searchedResturants" (click)="addToCart(item)">
+                <ion-thumbnail slot="start">
+                    <img src="{{ item.resturantImg }}" />
+                </ion-thumbnail>
+                <ion-label>
+                    <h5>{{ item.resturantName }}</h5>
+                    <p>{{ item.resturantTypeDish }}</p>
+                    <h6>
+                        {{ item.resturantRating}}
+                        <ion-icon name="star" size="small"></ion-icon>
+                        {{ item.resturantDistanceTime }} min. R {{ item.resturantDishPrice }}
+                    </h6>
+                    <ion-text color="primary" style="font-size: 15px;">{{ item.resturantDistance }}km away</ion-text>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-content>

@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Home
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">Home</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-card>
+            <img src="assets/images/main.jpg" />
+            <ion-card-header>
+                <ion-card-title>Resturants Nearby</ion-card-title>
+                <ion-card-subtitle>Discover unique tates near you </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-list>
+                    <ion-item *ngFor="let item of Resturants" (click)="addToCart(item)">
+                        <ion-thumbnail slot="start">
+                            <img src="{{ item.resturantImg }}" />
+                        </ion-thumbnail>
+                        <ion-label>
+                            <h5>{{ item.resturantName }}</h5>
+                            <p>{{ item.resturantTypeDish }}</p>
+                            <h6>
+                                {{ item.resturantRating}}
+                                <ion-icon name="star" size="small"></ion-icon>
+                                {{ item.resturantDistanceTime }} min. R {{ item.resturantDishPrice }}
+                            </h6>
+                            <ion-text color="primary" style="font-size: 15px;">{{ item.resturantDistance }}km away</ion-text>
+                        </ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-card-content>
+        </ion-card>
+    </ion-content>
+</ion-content>
